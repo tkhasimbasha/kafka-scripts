@@ -1,0 +1,17 @@
+--For creating a topic
+kafka-topics --bootstrap-server localhost:9092 --create --topic users --partitions 4 --replication-factor 1
+
+--for listing topicsfka-topics  --bootstrap-server localhost:9092 --list
+
+-- for describing a topic.
+kafka-topics  --bootstrap-server localhost:9092 --describe --topic users
+
+-- for producing 
+kafka-console-producer --bootstrap-server localhost:9092 --property key.separator=, --property parse.key=true --topic users
+
+-- for consuming
+kafka-console-consumer --bootstrap-server localhost:9092 --topic users --from-beginning
+--for consuming + printing timestamp + key + value
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic users --property print.timestamp=true --property print.key=true --property print.value=true  --from-beginning
+
